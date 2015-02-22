@@ -23,8 +23,6 @@ else
     name_mph='mph';
 end
 
-PN=PushoverNotifier(name_mph);
-
 a       = mphglobal(m,{'a'},'Dataset','dset1','Outersolnum',1,'Solnum',1);
 c_const = mphglobal(m,{'c_const'},'Dataset','dset1','Outersolnum',1,'Solnum',1);
 
@@ -43,9 +41,4 @@ output_meshgrid.in=in;
 output_meshgrid.a=a;
 output_meshgrid.c_const=c_const;
 
-fprintf('# Saving results... \n');
-saveTime=clock();
-save( ['./data/','MG_',name_mph,'_',sprintf( '%d-%d-%d_%d-%d',saveTime(1),saveTime(2),saveTime(3),saveTime(4),saveTime(5) ),'.mat'], 'output_meshgrid' );
-
-PN.TimedNotify();
 end
